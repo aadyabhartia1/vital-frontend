@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { HealthLog, Habit, AIInsight, DashboardData, ChatMessage, Notification } from "@/types";
+import type { HealthLog, Habit, AIInsight, DashboardData, ChatMessage, Notification, MoodLevel } from "@/types";
 
 // Mock data for demonstration
 const mockTodayLog: HealthLog = {
@@ -56,8 +56,8 @@ interface AppState {
   markNotificationRead: (id: string) => void;
   addWater: (amount: number) => void;
   fetchDashboardData: (token: string) => Promise<void>;
-  logHealthMetrics: (metrics: { sleepHours?: number; heartRate?: number; activityScore?: number; waterIntake?: number; mood?: string }, token: string) => Promise<void>;
-  logMood: (mood: string, token: string) => Promise<void>;
+  logHealthMetrics: (metrics: { sleepHours?: number; heartRate?: number; activityScore?: number; waterIntake?: number; mood?: MoodLevel }, token: string) => Promise<void>;
+  logMood: (mood: MoodLevel, token: string) => Promise<void>;
 }
 
 export const useAppStore = create<AppState>((set) => ({
