@@ -6,7 +6,7 @@ import { Brain, TrendingUp, Calendar } from "lucide-react";
 import { useAuth } from "@clerk/nextjs";
 import { MoodLevel } from "@/types";
 
-const moodOptions = [
+const moodOptions: { value: MoodLevel; emoji: string; label: string; color: string }[] = [
   { value: "excellent", emoji: "😄", label: "Excellent", color: "#22c55e" },
   { value: "good", emoji: "🙂", label: "Good", color: "#f97316" },
   { value: "neutral", emoji: "😐", label: "Neutral", color: "#eab308" },
