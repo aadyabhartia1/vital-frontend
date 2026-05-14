@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useAppStore } from "@/store/useAppStore";
 import { Brain, TrendingUp, Calendar } from "lucide-react";
 import { useAuth } from "@clerk/nextjs";
+import { MoodLevel } from "@/types";
 
 const moodOptions = [
   { value: "excellent", emoji: "😄", label: "Excellent", color: "#22c55e" },
@@ -36,7 +37,7 @@ export default function MoodTrackerPage() {
   const { getToken } = useAuth();
   const { weeklyLogs, todayLog } = dashboardData;
 
-  const handleMoodSelect = async (moodValue: string) => {
+  const handleMoodSelect = async (moodValue: MoodLevel) => {
     const token = await getToken();
     if (token) {
       await logMood(moodValue, token);
